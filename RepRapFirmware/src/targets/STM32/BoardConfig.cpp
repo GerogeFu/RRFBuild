@@ -336,7 +336,7 @@ typedef struct {
 // These are our known SD card configurations
 static constexpr SDCardConfig SDCardConfigs[] = {
     {SSP1, {PA_5, PA_6, PB_5, PA_4, NoPin, NoPin}, {0x502, 0x502, 0x502, 0x1}}, // SKR Pro
-    {SSP1, {PA_5, PA_6, PA_7, PA_4, NoPin, NoPin}, {0x502, 0x502, 0x502, 0x1}}, // GTR
+    {SSP1, {PA_5, PA_6, PA_7, PA_4, NoPin, NoPin}, {0x502, 0x502, 0x502, 0x1}}, // GTR / FYSETC
     {SSPSDIO, {PC_8, PC_9, PC_10, PC_11, PC_12, PD_2}, {0xc02, 0xc02, 0xc02, 0xc02, 0xc02, 0xc02}}, // Fly/SDIO
     {SSP3, {PC_10, PC_11, PC_12, PC_9, NoPin, NoPin}, {0x602, 0x602, 0x602, 0x1}}, // MKS?
 };
@@ -389,6 +389,8 @@ static SSPChannel InitSDCard(uint32_t boardSig, FATFS *fs)
                 conf = LPC_Boards[i].defaults.SDConfig;
                 debugPrintf("Sig match 0x%x %d board %s SDConfig %d\n", (unsigned) boardSig, (int)i, LPC_Boards[i].boardName, conf);
             }
+
+    conf = LPC_Boards[0].defaults.SDConfig;
             
     if (conf == SD_NONE)
     {
