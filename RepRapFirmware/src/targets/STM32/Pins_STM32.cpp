@@ -18,7 +18,7 @@ bool ATX_INITIAL_POWER_ON = true;           // Should external power be on/off a
 bool ATX_POWER_STATE = true;                // We may not have an actual pin so use this to track state
 
 //SDCard pins and settings
-Pin SdCardDetectPins[NumSdCards] = { NoPin, NoPin };
+Pin SdCardDetectPins[NumSdCards] = { PB_10, NoPin };
 Pin SdSpiCSPins[NumSdCards] =      { PA_4,  NoPin };    // Internal, external. Note:: ("slot" 0 in CORE is configured to be LCP SSP1 to match default RRF behaviour)
 uint32_t ExternalSDCardFrequency = 4000000;             //default to 4MHz
 #if HAS_LINUX_INTERFACE || HAS_WIFI_NETWORKING
