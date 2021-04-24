@@ -23,10 +23,10 @@
 #include "SharedSpiDevice.h"
 #include "SharedSpiClient.h"
 
-//#define SD_DEBUG
+#define SD_DEBUG
 
 
-constexpr uint32_t SCLK_SD25 =  50000000;   /* SCLK frequency under High Speed operation [Hz] */
+constexpr uint32_t SCLK_SD25 =  400000;   /* SCLK frequency under High Speed operation [Hz] */
 constexpr uint32_t SCLK_SD12 =  25000000;   /* SCLK frequency under normal operation  [Hz] */
 constexpr uint32_t SCLK_INIT =  400000;     /* SCLK frequency under initialization [Hz] */
 
